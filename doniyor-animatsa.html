@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>DONIYOR Animatsa</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;height:100vh;overflow:hidden;color:#fff;font-family:Arial}
+.stars{position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(#0f0033,#000)}
+.star{position:absolute;background:#fff;border-radius:50%;box-shadow:0 0 10px #fff;animation:s 5s infinite}
+@keyframes s{0%,100%{opacity:0.1}50%{opacity:1}}
+.logo{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);font-size:130px;font-weight:900;
+background:linear-gradient(45deg,#ff006e,#00ff88,#0066ff);-webkit-background-clip:text;color:transparent;
+animation:l 3s forwards,g 2s infinite}
+@keyframes l{0%{transform:translate(-50%,-50%) scale(0) rotate(-720deg);opacity:0}
+100%{transform:translate(-50%,-50%) scale(1);opacity:1}}
+@keyframes g{to{text-shadow:0 0 80px #ff006e,0 0 120px #00ff88}}
+.earth{position:fixed;top:50%;left:50%;width:1200px;height:1200px;
+background:radial-gradient(circle at 30% 30%,#00ff88,#0066ff,#ff00aa);
+border-radius:50%;transform:translate(-50%,-50%) scale(0);opacity:0;
+animation:e 2s 2s forwards;box-shadow:0 0 400px #00ffff}
+@keyframes e{to{transform:translate(-50%,-50%) scale(1.2);opacity:0.8}}
+</style>
+</head>
+<body>
+<div class="stars" id="s"></div>
+<div class="earth"></div>
+<div class="logo">DONIYOR</div>
+<script>
+for(let i=0;i<500;i++){
+  let x=document.createElement('div');x.className='star';
+  x.style.width=x.style.height=(Math.random()*4+1)+'px';
+  x.style.top=Math.random()*100+'%';
+  x.style.left=Math.random()*100+'%';
+  x.style.animationDelay=Math.random()*5+'s';
+  document.getElementById('s').appendChild(x);
+}
+</script>
+</body>
+</html>
